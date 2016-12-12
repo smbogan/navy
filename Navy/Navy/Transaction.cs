@@ -14,9 +14,21 @@ namespace Navy
             set;
         }
 
-        public Transaction()
-        {
+        public DateTime Date { get; set; }
 
+        public int Amount { get; set; }
+
+        public string Security { get; set; }
+
+        public string Description { get; set; }
+
+
+        public Transaction(Operation transactionType)
+        {
+            TransactionType = transactionType;
+            Date = DateTime.Today;
+            Amount = 0;
+            Description = "";
         }
     }
 }

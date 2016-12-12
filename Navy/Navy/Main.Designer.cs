@@ -29,37 +29,38 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
-            this.transactions = new System.Windows.Forms.DataGridView();
+            this.transactionView = new System.Windows.Forms.PropertyGrid();
+            this.register = new System.Windows.Forms.DataGridView();
             this.menu = new System.Windows.Forms.ToolStrip();
             this.add = new System.Windows.Forms.ToolStripButton();
             this.delete = new System.Windows.Forms.ToolStripButton();
-            ((System.ComponentModel.ISupportInitialize)(this.transactions)).BeginInit();
+            this.accept = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.register)).BeginInit();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // propertyGrid1
+            // transactionView
             // 
-            this.propertyGrid1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.transactionView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.propertyGrid1.Location = new System.Drawing.Point(475, 12);
-            this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.Size = new System.Drawing.Size(329, 487);
-            this.propertyGrid1.TabIndex = 0;
+            this.transactionView.Location = new System.Drawing.Point(475, 12);
+            this.transactionView.Name = "transactionView";
+            this.transactionView.Size = new System.Drawing.Size(329, 446);
+            this.transactionView.TabIndex = 0;
             // 
-            // transactions
+            // register
             // 
-            this.transactions.AllowUserToAddRows = false;
-            this.transactions.AllowUserToDeleteRows = false;
-            this.transactions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.register.AllowUserToAddRows = false;
+            this.register.AllowUserToDeleteRows = false;
+            this.register.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.transactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.transactions.Location = new System.Drawing.Point(11, 12);
-            this.transactions.Name = "transactions";
-            this.transactions.ReadOnly = true;
-            this.transactions.Size = new System.Drawing.Size(445, 487);
-            this.transactions.TabIndex = 1;
+            this.register.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.register.Location = new System.Drawing.Point(11, 12);
+            this.register.Name = "register";
+            this.register.ReadOnly = true;
+            this.register.Size = new System.Drawing.Size(445, 487);
+            this.register.TabIndex = 1;
             // 
             // menu
             // 
@@ -81,6 +82,7 @@
             this.add.Name = "add";
             this.add.Size = new System.Drawing.Size(33, 22);
             this.add.Text = "Add";
+            this.add.Click += new System.EventHandler(this.add_Click);
             // 
             // delete
             // 
@@ -91,17 +93,28 @@
             this.delete.Size = new System.Drawing.Size(44, 22);
             this.delete.Text = "Delete";
             // 
+            // accept
+            // 
+            this.accept.Location = new System.Drawing.Point(729, 476);
+            this.accept.Name = "accept";
+            this.accept.Size = new System.Drawing.Size(75, 23);
+            this.accept.TabIndex = 3;
+            this.accept.Text = "Accept";
+            this.accept.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 538);
+            this.Controls.Add(this.accept);
             this.Controls.Add(this.menu);
-            this.Controls.Add(this.transactions);
-            this.Controls.Add(this.propertyGrid1);
+            this.Controls.Add(this.register);
+            this.Controls.Add(this.transactionView);
             this.Name = "Main";
-            this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.transactions)).EndInit();
+            this.Text = "Navy - Net Asset Valuation";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
+            ((System.ComponentModel.ISupportInitialize)(this.register)).EndInit();
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             this.ResumeLayout(false);
@@ -111,11 +124,12 @@
 
         #endregion
 
-        private System.Windows.Forms.PropertyGrid propertyGrid1;
-        private System.Windows.Forms.DataGridView transactions;
+        private System.Windows.Forms.PropertyGrid transactionView;
+        private System.Windows.Forms.DataGridView register;
         private System.Windows.Forms.ToolStrip menu;
         private System.Windows.Forms.ToolStripButton add;
         private System.Windows.Forms.ToolStripButton delete;
+        private System.Windows.Forms.Button accept;
     }
 }
 
