@@ -20,13 +20,21 @@ namespace Navy
         [BsonIndex]
         public DateTime Date { get; set; }
 
-        public int Amount { get; set; }
+        public decimal Amount { get; set; }
 
         [BsonIndex]
         public string Security { get; set; }
 
         public string Description { get; set; }
 
+        public Transaction(Transaction copySource)
+        {
+            TransactionType = copySource.TransactionType;
+            Date = copySource.Date;
+            Amount = copySource.Amount;
+            Security = copySource.Security;
+            Description = copySource.Description;
+        }
 
         public Transaction()
         {

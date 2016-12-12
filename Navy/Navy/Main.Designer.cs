@@ -39,33 +39,37 @@
             this.datagridMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitter = new System.Windows.Forms.Splitter();
+            this.rightPanel = new System.Windows.Forms.Panel();
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addCopy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.register)).BeginInit();
             this.menu.SuspendLayout();
             this.datagridMenu.SuspendLayout();
+            this.rightPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // transactionView
             // 
-            this.transactionView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.transactionView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.transactionView.Location = new System.Drawing.Point(475, 12);
+            this.transactionView.Location = new System.Drawing.Point(3, 3);
             this.transactionView.Name = "transactionView";
-            this.transactionView.Size = new System.Drawing.Size(329, 446);
+            this.transactionView.Size = new System.Drawing.Size(333, 437);
             this.transactionView.TabIndex = 0;
             // 
             // register
             // 
             this.register.AllowUserToAddRows = false;
             this.register.AllowUserToDeleteRows = false;
-            this.register.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.register.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.register.ContextMenuStrip = this.datagridMenu;
-            this.register.Location = new System.Drawing.Point(11, 12);
+            this.register.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.register.Location = new System.Drawing.Point(0, 0);
             this.register.Name = "register";
             this.register.ReadOnly = true;
-            this.register.Size = new System.Drawing.Size(445, 487);
+            this.register.Size = new System.Drawing.Size(706, 508);
             this.register.TabIndex = 1;
             // 
             // menu
@@ -74,9 +78,9 @@
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.add,
             this.delete});
-            this.menu.Location = new System.Drawing.Point(0, 513);
+            this.menu.Location = new System.Drawing.Point(0, 508);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(819, 25);
+            this.menu.Size = new System.Drawing.Size(1056, 25);
             this.menu.TabIndex = 2;
             this.menu.Text = "toolStrip1";
             // 
@@ -98,11 +102,12 @@
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(44, 22);
             this.delete.Text = "Delete";
+            this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
             // accept
             // 
             this.accept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.accept.Location = new System.Drawing.Point(729, 476);
+            this.accept.Location = new System.Drawing.Point(252, 469);
             this.accept.Name = "accept";
             this.accept.Size = new System.Drawing.Size(75, 23);
             this.accept.TabIndex = 3;
@@ -114,9 +119,10 @@
             // 
             this.datagridMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editToolStripMenuItem,
+            this.copyToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.datagridMenu.Name = "datagridMenu";
-            this.datagridMenu.Size = new System.Drawing.Size(108, 48);
+            this.datagridMenu.Size = new System.Drawing.Size(108, 70);
             // 
             // editToolStripMenuItem
             // 
@@ -130,16 +136,55 @@
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // splitter
+            // 
+            this.splitter.Dock = System.Windows.Forms.DockStyle.Right;
+            this.splitter.Location = new System.Drawing.Point(706, 0);
+            this.splitter.Name = "splitter";
+            this.splitter.Size = new System.Drawing.Size(11, 508);
+            this.splitter.TabIndex = 5;
+            this.splitter.TabStop = false;
+            // 
+            // rightPanel
+            // 
+            this.rightPanel.Controls.Add(this.addCopy);
+            this.rightPanel.Controls.Add(this.transactionView);
+            this.rightPanel.Controls.Add(this.accept);
+            this.rightPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.rightPanel.Location = new System.Drawing.Point(717, 0);
+            this.rightPanel.Name = "rightPanel";
+            this.rightPanel.Size = new System.Drawing.Size(339, 508);
+            this.rightPanel.TabIndex = 6;
+            // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.copyToolStripMenuItem.Text = "Copy";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            // 
+            // addCopy
+            // 
+            this.addCopy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.addCopy.Location = new System.Drawing.Point(162, 469);
+            this.addCopy.Name = "addCopy";
+            this.addCopy.Size = new System.Drawing.Size(84, 23);
+            this.addCopy.TabIndex = 4;
+            this.addCopy.Text = "Add Copy";
+            this.addCopy.UseVisualStyleBackColor = true;
+            this.addCopy.Click += new System.EventHandler(this.addCopy_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(819, 538);
-            this.Controls.Add(this.accept);
-            this.Controls.Add(this.menu);
+            this.ClientSize = new System.Drawing.Size(1056, 533);
             this.Controls.Add(this.register);
-            this.Controls.Add(this.transactionView);
+            this.Controls.Add(this.splitter);
+            this.Controls.Add(this.rightPanel);
+            this.Controls.Add(this.menu);
             this.Name = "Main";
             this.Text = "Navy - Net Asset Valuation";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
@@ -147,6 +192,7 @@
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             this.datagridMenu.ResumeLayout(false);
+            this.rightPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,6 +209,10 @@
         private System.Windows.Forms.ContextMenuStrip datagridMenu;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.Splitter splitter;
+        private System.Windows.Forms.Panel rightPanel;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+        private System.Windows.Forms.Button addCopy;
     }
 }
 
