@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.transactionView = new System.Windows.Forms.PropertyGrid();
             this.register = new System.Windows.Forms.DataGridView();
@@ -35,8 +36,12 @@
             this.add = new System.Windows.Forms.ToolStripButton();
             this.delete = new System.Windows.Forms.ToolStripButton();
             this.accept = new System.Windows.Forms.Button();
+            this.datagridMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.register)).BeginInit();
             this.menu.SuspendLayout();
+            this.datagridMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // transactionView
@@ -56,6 +61,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.register.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.register.ContextMenuStrip = this.datagridMenu;
             this.register.Location = new System.Drawing.Point(11, 12);
             this.register.Name = "register";
             this.register.ReadOnly = true;
@@ -95,12 +101,35 @@
             // 
             // accept
             // 
+            this.accept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.accept.Location = new System.Drawing.Point(729, 476);
             this.accept.Name = "accept";
             this.accept.Size = new System.Drawing.Size(75, 23);
             this.accept.TabIndex = 3;
             this.accept.Text = "Accept";
             this.accept.UseVisualStyleBackColor = true;
+            this.accept.Click += new System.EventHandler(this.accept_Click);
+            // 
+            // datagridMenu
+            // 
+            this.datagridMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.datagridMenu.Name = "datagridMenu";
+            this.datagridMenu.Size = new System.Drawing.Size(108, 48);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
             // 
             // Main
             // 
@@ -117,6 +146,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.register)).EndInit();
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
+            this.datagridMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,6 +160,9 @@
         private System.Windows.Forms.ToolStripButton add;
         private System.Windows.Forms.ToolStripButton delete;
         private System.Windows.Forms.Button accept;
+        private System.Windows.Forms.ContextMenuStrip datagridMenu;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }
 
